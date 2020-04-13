@@ -1,5 +1,9 @@
-<html>
-  <head><title>Create table</title></head>
+<!DOCTYPE html>
+<html lang="en" dir="1tr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Create table</title>
+  </head>
   <body>
     <?php
       $server = 'localhost';
@@ -7,29 +11,28 @@
       $pass = '12345';
       $mydb = 'sale';
       $table_name = 'Products';
-      $mysqli = new mysqli($server, $user, $pass);
-      if($mysqli->connect_errno){
+      $connection = mysqli_connect($server, $user, $pass);
+      if(!$connection){
         die("Cannot connect to $server using $user");
       }
       else {
-        $SQLcmd = "CREATE TABLE $table_name("
-                . "ProductID INT UNSIGNED NOT NULL"
-                . "AUTO_INCREMENT PRIMARY KEY,"
-                . "Product_desc VARCHAR(50),"
-                . "Cost INT,"
-                . "Weight INT,"
-                . "Numb INT)";
-        $mysqli->select_db($mydb);
-        if($mysqli->query($SQLcmd)){
+        $SQLcmd = "CREATE TABLE $table_name(
+                ProductID INT UNSIGNED NOT NULL
+                AUTO_INCREMENT PRIMARY KEY,
+                Product_desc VARCHAR(50),
+                Cost INT,
+                Weight INT,
+                Numb INT)";
+        mysqli_select_db($connection, $mydb);
+        if(mysqli_query($connection, $SQLcmd)){
           print '<font size="4" color="blue" >Created Table';
-          print "<i>$table_name</i> in database<i>$mysql</i><br /></font>";
+          print "<i>$table_name</i> in database<i>$mydb</i><br /></font>";
           print "<br>SQLcmd = $SQLcmd";
         }
         else {
-          print "failed<br />";
           die("Table Create Creation Failed SQLcmd = $SQLcmd");
         }
-        $mysqli->close($connect);
+        mysqli_close($connection);
       }
     ?>
   </body>
