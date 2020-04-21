@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>Validation page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <form action="ValidationPage.php" method="POST">
+      <h2>Validation: Email, URL, Phone number</h2>
+      <table>
+        <tr>
+          <td>Email:</td>
+          <td>
+            <input type="text" size="25" name="email" placeholder="email..." />
+          </td>
+        </tr>
+        <tr>
+          <td>URL:</td>
+          <td>
+            <input type="text" size="25" name="url" placeholder="url..." />
+          </td>
+        </tr>
+        <tr>
+          <td>Phone number:</td>
+          <td>
+            <input type="text" size="25" name="phoneNumber" placeholder="phone number..." />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="submit" value="Submit" name="submit" />
+            <input type="reset" value="Reset" name="reset" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
