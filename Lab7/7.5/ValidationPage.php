@@ -22,7 +22,7 @@
         print "Invalid url=$url";
       }
       print "<br />";
-      if (preg_match("/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/", $phoneNumber)) {
+      if (preg_match("/(?<!\d)\d{10}(?!\d)/", $phoneNumber)) {
         print "Valid phone number = $phoneNumber";
       } else {
         print "Invalid phone number = $phoneNumber";
