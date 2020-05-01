@@ -6,7 +6,7 @@
   </head>
   <body>
     <?php
-      require('db.php');
+      require '../connection.php';
       $connect = connect_db();
       $keys = array('name', 'address', 'city', 'tel', 'url', 'categories');
       $is_ready = true;
@@ -79,4 +79,3 @@
     </form>
   </body>
 </html>
-© 2020 GitHub, Inc.

@@ -1,0 +1,32 @@
+CREATE TABLE categories(
+    CategoryID INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Title varchar(30),
+    Description varchar(30)
+);
+CREATE TABLE businesses(
+    BusinessID INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Name varchar(30),
+    Address varchar(30),
+    City varchar(30),
+    Telephone varchar(30),
+    URL varchar(30)
+);
+CREATE TABLE biz_categories(
+    BusinessID INTEGER REFERENCES businesses(BusinessID),  
+    CategoryID INTEGER REFERENCES categories(CategoryID)
+);
+ALTER TABLE biz_categories MODIFY CategoryID varchar(10);
+ALTER TABLE categories MODIFY CategoryID varchar(10);
+
+
+INSERT INTO `categories`(`CategoryID`, `Title`, `Description`) VALUES ('AUTO', 'Automotive Pants and Supplies', 'Accessories for your car');
+INSERT INTO `categories`(`CategoryID`, `Title`, `Description`) VALUES ('FISH', 'Seafood Stores and Restaurants', 'Place to get your fish');
+INSERT INTO `categories`(`CategoryID`, `Title`, `Description`) VALUES ('HEALTH', 'Health and Beauty', 'Everything for your body');
+INSERT INTO `categories`(`CategoryID`, `Title`, `Description`) VALUES ('SCHOOL', 'Schools and Colleges', 'Public and Private Learning');
+INSERT INTO `categories`(`CategoryID`, `Title`, `Description`) VALUES ('SPORTS', 'Community Sports and Recreation', 'Guide to Parks and Leagues');
+
+INSERT INTO `businesses`(`BusinessID`, `Name`, `Address`, `City`, `Telephone`, `URL`) VALUES (5, 'Leadorf Salon and Academy', '123 Amy Street', 'Toronto', '(555)123-4567', 'http://www.google.com');
+INSERT INTO `businesses`(`BusinessID`, `Name`, `Address`, `City`, `Telephone`, `URL`) VALUES (6, 'Auto School', '123 Some Street', 'Gainsville', '(999)555-1234', 'http://www.autoschool.net');
+
+INSERT INTO `biz_categories`(`BusinessID`, `CategoryID`) VALUES (5, 'SCHOOL');
+INSERT INTO `biz_categories`(`BusinessID`, `CategoryID`) VALUES (6, 'SCHOOL');

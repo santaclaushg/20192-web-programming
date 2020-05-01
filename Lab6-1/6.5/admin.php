@@ -18,7 +18,7 @@
         </thead>
         <tbody>
           <?php
-          require './serverConfig.php';
+          require '../connection.php';
 
           function alert($msg) {
             echo "<script type='text/javascript'>alert('$msg');</script>";
@@ -60,12 +60,9 @@
             }
           }
 
-          $db_name = 'business_service';
           $table_name = 'Categories';
-          $mysqli = new mysqli($server, $user, $password);
-          if ($mysqli->connect_errno) {
-            die("Cannot connect to $server!");
-          } else {
+          $mysqli = createConnection($server, $user, $password, $db_name);
+          if (!is_null($mysqli)) {
             $selectCategoriesSqlQuery = "SELECT * FROM $table_name";
             $mysqli->select_db($db_name);
             $result = $mysqli->query($selectCategoriesSqlQuery);
