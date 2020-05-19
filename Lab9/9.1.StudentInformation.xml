@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!DOCTYPE students [
+  <!ELEMENT students (studentID, fullName, dateOfBirth, className, program, status)*>
+  <!ELEMENT FullName (firstName, lastName) >
+  <!ELEMENT dateOfBirth (day, month, year) >
+]>
+
+<students>
+  <studentID>
+    20161198
+  </studentID>
+  <fullName>
+    <firstName>Giap</firstName>
+    <lastName>Hoang</lastName>
+  </fullName>
+  <dateOfBirth>
+    <day>23</day>
+    <month>12</month>
+    <year>2020</year>
+  </dateOfBirth>
+  <className>ICT.02</className>
+  <program>ICT</program>
+  <status>Studying</status>
+</students>
