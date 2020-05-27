@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <script type="text/javascript">
+      num = 0;
+      function myFunc() {
+        num++;
+        document.forms.namedItem("myForm").outputField.value = "Called " + num + " times";
+      }
+      window.setInterval("myFunc()", 1000);
+    </script>
+  </head>
+  <body>
+    <form name="myForm">
+      <input type="text" name="outputField" readonly />
+    </form>
+  </body>
+</html>
