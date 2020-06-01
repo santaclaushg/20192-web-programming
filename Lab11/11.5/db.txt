@@ -1,0 +1,22 @@
+CREATE TABLE products( 
+	ProductName varchar(255) NOT NULL PRIMARY KEY, 
+	Publisher varchar(255) NOT NULL, 
+	SKU char(4) NOT NULL, 
+	Platform varchar(255) NOT NULL,
+    	Delivery varchar(255) NOT NULL,
+	Price varchar(30) NOT NULL
+);
+
+CREATE TABLE `users` (
+  `UserName` varchar(50) NOT NULL PRIMARY KEY,
+  `Password` varchar(30) NOT NULL,
+  `DisplayName` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `Email` varchar(50) UNIQUE NOT NULL,
+  `PhoneNumber` varchar(10) DEFAULT NULL
+)
+
+CREATE TABLE `users_products` (
+	`id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	`UserName` varchar(255) NOT NULL REFERENCES users(UserName),
+	`ProductName` varchar(255) NOT NULL REFERENCES products(ProductName)
+)

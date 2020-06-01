@@ -26,3 +26,18 @@ function findUserExist($conn, $username, $userPassword) {
   $result = $conn->query($findUserQuery);
   return $result;
 }
+function findAllProducts($conn) {
+  $findAllProductsQuery = "SELECT * FROM products";
+  $result = $conn->query($findAllProductsQuery);
+  return $result;
+}
+function findProductByName($conn, $productName) {
+  $findProductBynameQuery = "SELECT * FROM products WHERE ProductName = '$productName'";
+  $result = $conn->query($findProductBynameQuery);
+  return $result;
+}
+function insertPayment($conn, $userName, $productName){
+  $insertPaymentQuery = "INSERT INTO users_products (UserName, ProductName) VALUES ('$userName', '$productName')";
+  $result = $conn->query($insertPaymentQuery);
+  return $result;
+}
