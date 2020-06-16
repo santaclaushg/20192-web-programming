@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <script type="text/javascript">
+      function validatePostalCode() {
+        var postalCodeCheck = new RegExp("([A-Z][0-9]){3,3}");
+        console.log(document.forms.namedItem('myForm'));
+        if(postalCodeCheck.test(document.forms.namedItem('myForm').postalCodeField.value)) {
+          alert("Valid Postal Code");
+          return true;
+        }
+        else {
+          alert("Invalid Postal Code: " + document.forms.namedItem('myForm').value);
+          return false;
+        }
+      }
+      function validateMoney() {
+        var moneyCheck = new RegExp("[0-9]*[/.][0-9][0-9]");
+        if(moneyCheck.test(document.forms.namedItem('myForm').moneyField.value)) {
+          alert("Valid money");
+          return true;
+        }
+        else {
+          alert("Invalid Money: " + document.forms.namedItem('myForm').moneyField.value);
+          return false;
+        }
+      }
+    </script>
+    <form id="myForm">
+      Postal Code: <input type="text" name="postalCodeField"/>
+      <input type="button" value="Check Postal Code" onclick="validatePostalCode()" />
+      <br />
+      Money: $<input type="text" name="moneyField" />
+      <input type="button" value="Check Money" onclick="validateMoney()" />
+    </form>
+  </body>
+</html>
